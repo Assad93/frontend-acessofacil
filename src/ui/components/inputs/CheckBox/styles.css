@@ -1,0 +1,32 @@
+.checkbox {
+  width: 130px;
+  height: 70px;
+  padding: 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 48px;
+  font-weight: bold;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.5);
+  color: #152f6e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+#checkbox-1:checked:checked ~ .checkbox {
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
