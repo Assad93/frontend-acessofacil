@@ -70,7 +70,7 @@ function Login() {
   return (
     <Container>
       <Content>
-        {countFacialError === 3 && (
+        {countFacialError >= 3 && (
           <ErrorMsg>
             <ErrorIcon style={{ fontSize: 50 }} />
             Reconhecimento Facial falhou 3 vezes

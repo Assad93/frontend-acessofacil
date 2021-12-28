@@ -78,31 +78,19 @@ function FacialRecAuth() {
   }, []);
 
   useEffect(() => {
-    automaticCapture();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [webcamRef]);
-
-  useEffect(() => {
     if (image) {
       detect();
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image]);
 
   useEffect(() => {
     if (error) {
       setImage("");
-      //two more chances to miss
-      if (countFacialError < 2) {
-        automaticCapture();
-      } else {
-        //logout
+      if (countFacialError >= 2) {
         history.push("/login");
       }
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
@@ -116,7 +104,6 @@ function FacialRecAuth() {
         history.push("/error");
       }
     }, 5000);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [webcamRef]);
 
@@ -204,6 +191,7 @@ function FacialRecAuth() {
                   screenshotFormat="image/jpg"
                   width={425}
                   alt=""
+                  onCanPlay={() => automaticCapture()}
                 />
                 <FacialRecAnimation />
               </>
